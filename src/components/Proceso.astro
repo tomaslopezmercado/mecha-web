@@ -1,0 +1,216 @@
+---
+import Spark from './Spark.astro';
+---
+
+<section id="proceso" class="proceso">
+  <Spark
+    size={24}
+    color="#c4f000"
+    twinkle="a"
+    speed={-0.2}
+    baseOp={0.85}
+    posStyle="top: 40px; right: 60px;"
+    variant="star"
+  />
+  <Spark
+    size={14}
+    color="white"
+    twinkle="b"
+    speed={-0.08}
+    baseOp={0.35}
+    posStyle="bottom: 80px; left: 80px;"
+    variant="plus"
+  />
+  <Spark
+    size={10}
+    color="#c4f000"
+    twinkle="c"
+    speed={-0.12}
+    baseOp={0.55}
+    posStyle="top: 200px; left: 36%;"
+    variant="plus"
+  />
+  <Spark
+    size={18}
+    color="white"
+    twinkle="a"
+    speed={-0.15}
+    baseOp={0.25}
+    posStyle="top: 80px; left: 120px;"
+    variant="star"
+  />
+  <Spark
+    size={20}
+    color="#c4f000"
+    twinkle="b"
+    speed={-0.25}
+    baseOp={0.7}
+    posStyle="bottom: 40px; right: 30%;"
+    variant="plus"
+  />
+
+  <div class="mono section-label">∗ EL PROCESO</div>
+  <h2 class="display section-title">Tres pasos. Un día de trabajo.</h2>
+  <p class="section-desc">
+    Si nos das el material a tiempo, tu sitio queda online en 24 a 48 horas.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-header">
+        <div class="mono step-num">01</div>
+        <div class="step-bar" role="presentation"></div>
+      </div>
+      <div class="step-name display">Brief</div>
+      <p class="step-desc">
+        Llenás un formulario corto y charlamos 20 minutos. Definimos el qué y
+        para quién.
+      </p>
+    </div>
+    <div class="step">
+      <div class="step-header">
+        <div class="mono step-num">02</div>
+        <div class="step-bar" role="presentation"></div>
+      </div>
+      <div class="step-name display">Diseño</div>
+      <p class="step-desc">
+        Construimos el sitio con tus textos, fotos y paleta. Te lo mostramos
+        antes de publicarlo.
+      </p>
+    </div>
+    <div class="step">
+      <div class="step-header">
+        <div class="mono step-num">03</div>
+        <div class="step-bar" role="presentation"></div>
+      </div>
+      <div class="step-name display">Online</div>
+      <p class="step-desc">
+        Publicamos, configuramos el dominio y te pasamos los accesos. El sitio
+        es tuyo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .proceso {
+    padding: 64px 48px;
+    background: #1c1c1c;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .proceso .section-label {
+    font-size: 11px;
+    color: #c4f000;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+
+  .proceso .section-title {
+    font-size: 32px;
+    color: white;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .proceso .section-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.55;
+    max-width: 480px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+    margin-top: 36px;
+  }
+
+  .step {
+    padding: 24px 20px;
+  }
+
+  .step:not(:last-child) {
+    border-right: 0.5px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .step:first-child {
+    padding-left: 0;
+  }
+
+  .step:last-child {
+    padding-right: 0;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .step-num {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.08em;
+  }
+
+  .step-bar {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+  }
+
+  .step-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #c4f000;
+  }
+
+  .step-name {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .step-desc {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 768px) {
+    .proceso {
+      padding: 48px 20px;
+    }
+
+    .proceso .section-title {
+      font-size: 26px;
+    }
+
+    .steps {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .step {
+      border-right: none !important;
+      padding: 0 !important;
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 24px !important;
+    }
+
+    .step:last-child {
+      border-bottom: none;
+      padding-bottom: 0 !important;
+    }
+  }
+</style>

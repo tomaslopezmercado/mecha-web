@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --color-carbon: #1c1c1c;
+  --color-lima: #c4f000;
+  --color-bone: #f5f5f2;
+  --color-ash: #d6d4cb;
+  --color-lead: #4a4a48;
+  --color-ember: #ff5722;
+}
+
+/* ——— RESET & BASE ——— */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f5f5f2;
+  color: #1c1c1c;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ——— TYPOGRAPHY HELPERS ——— */
+.display { font-family: 'Inter Tight', 'Inter', sans-serif; font-weight: 500; }
+.mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+
+/* ——— INTRO SPLASH ——— */
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: #1c1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.6s ease;
+}
+
+#intro-mark {
+  display: inline-flex;
+  align-items: baseline;
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+#intro-mark .word {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 96px;
+  color: white;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  opacity: 0;
+  animation: introFadeIn 0.6s ease forwards;
+}
+
+#intro-mark .spark-mark {
+  margin-left: 4px;
+  transform: translateY(-46px);
+  opacity: 0;
+  animation: introSparkle 0.4s ease 0.5s forwards;
+}
+
+/* ——— KEYFRAMES ——— */
+@keyframes introFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes introSparkle {
+  0%   { opacity: 0; transform: translateY(-46px) scale(0); }
+  50%  { opacity: 1; transform: translateY(-46px) scale(1.4); }
+  100% { opacity: 1; transform: translateY(-46px) scale(1); }
+}
+
+@keyframes twinkleA {
+  0%, 100% { opacity: var(--max-op, 0.9); }
+  50%       { opacity: calc(var(--max-op, 0.9) * 0.5); }
+}
+
+@keyframes twinkleB {
+  0%, 100% {
+    opacity: var(--max-op, 0.9);
+    transform: var(--base-transform, none) scale(1);
+  }
+  50% {
+    opacity: calc(var(--max-op, 0.9) * 0.4);
+    transform: var(--base-transform, none) scale(0.8);
+  }
+}
+
+@keyframes twinkleC {
+  0%, 100% {
+    opacity: var(--max-op, 0.9);
+    transform: var(--base-transform, none) rotate(0deg);
+  }
+  50% {
+    opacity: calc(var(--max-op, 0.9) * 0.55);
+    transform: var(--base-transform, none) rotate(45deg);
+  }
+}
+
+/* ——— SPARK (ASTERISCO) ——— */
+.spark {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.s-twinkle-a { animation: twinkleA 3s ease-in-out infinite; }
+.s-twinkle-b { animation: twinkleB 4.5s ease-in-out 0.5s infinite; }
+.s-twinkle-c { animation: twinkleC 6s ease-in-out 1s infinite; }
+
+/* ——— FOCUS STATES (accesibilidad) ——— */
+:focus-visible {
+  outline: 2px solid #c4f000;
+  outline-offset: 3px;
+}
+
+/* ——— REDUCED MOTION ——— */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .s-twinkle-a,
+  .s-twinkle-b,
+  .s-twinkle-c {
+    animation: none !important;
+    opacity: var(--max-op, 0.7) !important;
+  }
+
+  #intro-mark .word,
+  #intro-mark .spark-mark {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

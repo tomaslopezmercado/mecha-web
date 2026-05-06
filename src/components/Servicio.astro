@@ -1,0 +1,287 @@
+---
+import Spark from './Spark.astro';
+---
+
+<section id="servicio">
+  <Spark
+    size={14}
+    color="#1c1c1c"
+    twinkle="c"
+    speed={-0.18}
+    baseOp={0.45}
+    posStyle="top: 80px; left: 24px;"
+    variant="star"
+  />
+  <Spark
+    size={18}
+    color="#c4f000"
+    twinkle="a"
+    speed={-0.1}
+    baseOp={0.5}
+    posStyle="top: 380px; right: 24px;"
+    variant="star"
+  />
+
+  <div class="mono section-label">∗ EL SERVICIO</div>
+  <h2 class="display section-title">Hacemos sitios web. Eso.</h2>
+  <p class="section-desc">
+    Dos planes claros. Pago único. Sin mensualidades, sin atadura. El sitio
+    queda 100% a tu nombre.
+  </p>
+
+  <div class="plans">
+    <article class="plan encendido">
+      <div class="plan-header">
+        <div>
+          <div class="mono plan-tag">PLAN A</div>
+          <div class="plan-name display">Encendido</div>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 40 40" aria-hidden="true">
+          <line x1="20" y1="2" x2="20" y2="38" stroke="#1c1c1c" stroke-width="4" />
+          <line x1="2" y1="20" x2="38" y2="20" stroke="#1c1c1c" stroke-width="4" />
+        </svg>
+      </div>
+      <div class="plan-price">
+        <span class="mono currency">USD</span>
+        <span class="amount display">150 — 180</span>
+      </div>
+      <p class="plan-desc">
+        Una página, diseño 100% a medida. Para profesionales y comercios que
+        necesitan estar online sin vueltas.
+      </p>
+      <div class="plan-includes">
+        <div class="mono plan-includes-label">INCLUYE</div>
+        <ul>
+          <li>Landing de una página</li>
+          <li>Diseño responsive (mobile + desktop)</li>
+          <li>Formulario y WhatsApp directo</li>
+          <li>Optimizado para Google</li>
+          <li>Dominio configurado</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="plan llama">
+      <svg
+        class="s-twinkle-a llama-spark"
+        data-baseop="0.95"
+        width="22"
+        height="22"
+        viewBox="0 0 40 40"
+        aria-hidden="true"
+      >
+        <line x1="20" y1="2" x2="20" y2="38" stroke="#c4f000" stroke-width="3.5" />
+        <line x1="2" y1="20" x2="38" y2="20" stroke="#c4f000" stroke-width="3.5" />
+        <line x1="6" y1="6" x2="34" y2="34" stroke="#c4f000" stroke-width="3.5" />
+        <line x1="34" y1="6" x2="6" y2="34" stroke="#c4f000" stroke-width="3.5" />
+      </svg>
+      <div class="plan-header">
+        <div>
+          <div class="mono plan-tag">PLAN B</div>
+          <div class="plan-name display">Llama</div>
+        </div>
+      </div>
+      <div class="plan-price">
+        <span class="mono currency">USD</span>
+        <span class="amount display">280 — 350</span>
+      </div>
+      <p class="plan-desc">
+        Sitio extendido con varias secciones, animaciones y efectos cuidados.
+        Para negocios que quieren diferenciarse visualmente.
+      </p>
+      <div class="plan-includes">
+        <div class="mono plan-includes-label">INCLUYE</div>
+        <ul>
+          <li>Todo lo del plan Encendido</li>
+          <li>Múltiples secciones extendidas</li>
+          <li>Motion y micro-animaciones</li>
+          <li>Transiciones cuidadas en scroll</li>
+          <li>Hero con animación a medida</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  <p class="mono plans-disclaimer">
+    ∗ NO INCLUYE: REDACCIÓN DE CONTENIDOS · FOTOGRAFÍA · MODIFICACIONES
+    POSTERIORES AL LANZAMIENTO
+  </p>
+</section>
+
+<style>
+  #servicio {
+    padding: 64px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-label {
+    font-size: 11px;
+    color: #4a4a48;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 32px;
+    color: #1c1c1c;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: #4a4a48;
+    line-height: 1.55;
+    max-width: 480px;
+  }
+
+  .plans {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+    margin-top: 32px;
+  }
+
+  .plan {
+    border-radius: 8px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .plan.encendido {
+    background: white;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .plan.llama {
+    background: #1c1c1c;
+    color: white;
+  }
+
+  .llama-spark {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    pointer-events: none;
+  }
+
+  .plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 20px;
+  }
+
+  .plan-tag {
+    font-size: 10px;
+    color: #4a4a48;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .plan.llama .plan-tag {
+    color: #c4f000;
+  }
+
+  .plan-name {
+    font-size: 24px;
+    letter-spacing: -0.03em;
+  }
+
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .currency {
+    font-size: 11px;
+    color: #4a4a48;
+  }
+
+  .plan.llama .currency {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .amount {
+    font-size: 36px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .plan-desc {
+    font-size: 13px;
+    color: #4a4a48;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  .plan.llama .plan-desc {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .plan-includes {
+    border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+    padding-top: 16px;
+  }
+
+  .plan.llama .plan-includes {
+    border-top-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .plan-includes-label {
+    font-size: 10px;
+    color: #4a4a48;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+
+  .plan.llama .plan-includes-label {
+    color: #c4f000;
+  }
+
+  .plan-includes ul {
+    list-style: none;
+    font-size: 12px;
+    line-height: 1.85;
+    color: #1c1c1c;
+  }
+
+  .plan.llama .plan-includes ul {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .plan-includes li::before {
+    content: '→ ';
+  }
+
+  .plans-disclaimer {
+    font-size: 10px;
+    color: #4a4a48;
+    letter-spacing: 0.08em;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    #servicio {
+      padding: 48px 20px;
+    }
+
+    .section-title {
+      font-size: 26px;
+    }
+
+    .plans {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

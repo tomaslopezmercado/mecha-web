@@ -1,0 +1,136 @@
+---
+import Spark from './Spark.astro';
+
+const faqs = [
+  {
+    q: '¿En cuánto tiempo está mi sitio?',
+    a: 'Entre 24 y 48 horas desde que tenemos todo el material. El cuello de botella nunca somos nosotros.',
+  },
+  {
+    q: '¿Pago una sola vez?',
+    a: 'Sí. No hay mensualidades ni servicios atados. Pagás el plan, te entregamos el sitio, listo.',
+  },
+  {
+    q: '¿El dominio queda a mi nombre?',
+    a: 'Sí, todo a tu nombre. Hosting, dominio, accesos. Si algún día querés mudarte de proveedor, podés.',
+  },
+  {
+    q: '¿Y si necesito cambios después?',
+    a: 'Modificaciones menores se cotizan aparte. Cambios grandes los charlamos. Sin sorpresas.',
+  },
+  {
+    q: '¿Necesito traer textos y fotos?',
+    a: 'Sí. Vos sabés mejor que nadie qué hacés. Te damos una guía clara de lo que hace falta.',
+  },
+  {
+    q: '¿Trabajan con cualquier rubro?',
+    a: 'Profesionales, comercios, servicios, emprendedores. Si tenés algo para mostrar, te lo ponemos online.',
+  },
+];
+---
+
+<section id="preguntas">
+  <Spark
+    size={12}
+    color="#1c1c1c"
+    twinkle="c"
+    speed={-0.1}
+    baseOp={0.4}
+    posStyle="top: 100px; right: 24px;"
+    variant="star"
+  />
+  <Spark
+    size={16}
+    color="#c4f000"
+    twinkle="a"
+    speed={-0.18}
+    baseOp={0.55}
+    posStyle="top: 380px; left: 28px;"
+    variant="plus"
+  />
+
+  <div class="mono section-label">∗ PREGUNTAS</div>
+  <h2 class="display section-title">Lo que más nos preguntan.</h2>
+
+  <dl class="faqs">
+    {
+      faqs.map(({ q, a }) => (
+        <div class="faq">
+          <dt class="faq-q">{q}</dt>
+          <dd class="faq-a">{a}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>
+
+<style>
+  #preguntas {
+    padding: 64px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-label {
+    font-size: 11px;
+    color: #4a4a48;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 32px;
+    color: #1c1c1c;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0;
+  }
+
+  .faqs {
+    border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    margin-top: 32px;
+  }
+
+  .faq {
+    padding: 20px 0;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 32px;
+  }
+
+  .faq:last-child {
+    border-bottom: none;
+  }
+
+  .faq-q {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1c1c1c;
+    letter-spacing: -0.01em;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+  }
+
+  .faq-a {
+    font-size: 13px;
+    color: #4a4a48;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    #preguntas {
+      padding: 48px 20px;
+    }
+
+    .section-title {
+      font-size: 26px;
+    }
+
+    .faq {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

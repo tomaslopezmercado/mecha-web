@@ -1,0 +1,217 @@
+---
+import Spark from './Spark.astro';
+---
+
+<section class="hero">
+  <Spark
+    size={32}
+    color="#c4f000"
+    twinkle="a"
+    speed={-0.15}
+    baseOp={0.9}
+    posStyle="top: 80px; right: 80px;"
+    variant="star"
+  />
+  <Spark
+    size={14}
+    color="#1c1c1c"
+    twinkle="b"
+    speed={-0.08}
+    baseOp={0.5}
+    posStyle="top: 220px; right: 240px;"
+    variant="plus"
+  />
+  <Spark
+    size={20}
+    color="#1c1c1c"
+    twinkle="c"
+    speed={-0.22}
+    baseOp={0.7}
+    posStyle="bottom: 120px; right: 60px;"
+    variant="star"
+  />
+
+  <div class="mono hero-badge">∗ AGENCIA DIGITAL · BUENOS AIRES</div>
+
+  <div class="hero-mark display">
+    <span class="word">mecha</span>
+    <svg
+      width="44"
+      height="44"
+      viewBox="0 0 40 40"
+      class="hero-spark"
+      aria-hidden="true"
+    >
+      <line x1="20" y1="2" x2="20" y2="38" stroke="#c4f000" stroke-width="3" />
+      <line x1="2" y1="20" x2="38" y2="20" stroke="#c4f000" stroke-width="3" />
+      <line x1="6" y1="6" x2="34" y2="34" stroke="#c4f000" stroke-width="3" />
+      <line x1="34" y1="6" x2="6" y2="34" stroke="#c4f000" stroke-width="3" />
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="display">
+      Soluciones digitales que <span class="hero-highlight">encienden</span> tu
+      negocio.
+    </h1>
+    <p>
+      Hacemos sitios web rápidos, claros y bien construidos para negocios que
+      todavía no aparecen en Google. Diseño con criterio, pago único, todo a tu
+      nombre.
+    </p>
+    <div class="hero-actions">
+      <a
+        href="https://wa.me/"
+        class="btn-primary"
+        rel="noopener noreferrer"
+      >
+        Hablemos por WhatsApp <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <span class="mono micro">RESPONDEMOS EN EL DÍA</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 80px 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    font-size: 11px;
+    color: #4a4a48;
+    letter-spacing: 0.12em;
+    margin-bottom: 32px;
+  }
+
+  .hero-mark {
+    display: inline-flex;
+    align-items: baseline;
+    margin-bottom: 32px;
+  }
+
+  .hero-mark .word {
+    font-size: 140px;
+    font-weight: 500;
+    color: #1c1c1c;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+  }
+
+  .hero-spark {
+    margin-left: 6px;
+    transform: translateY(-78px);
+  }
+
+  .hero-content {
+    max-width: 580px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+    color: #1c1c1c;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .hero-highlight {
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: #c4f000;
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+    color: #4a4a48;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    padding: 12px 22px;
+    background: #1c1c1c;
+    color: white;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.03);
+  }
+
+  .btn-primary .arrow {
+    color: #c4f000;
+    font-size: 14px;
+  }
+
+  .micro {
+    font-size: 11px;
+    color: #4a4a48;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 60px 20px 40px;
+    }
+
+    .hero-mark .word {
+      font-size: 80px;
+    }
+
+    .hero-spark {
+      width: 26px;
+      height: 26px;
+      transform: translateY(-44px);
+    }
+
+    .hero-content h1 {
+      font-size: 26px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-mark .word {
+      font-size: 68px;
+    }
+
+    .hero-spark {
+      width: 22px;
+      height: 22px;
+      transform: translateY(-36px);
+    }
+
+    .hero-content h1 {
+      font-size: 24px;
+    }
+  }
+</style>

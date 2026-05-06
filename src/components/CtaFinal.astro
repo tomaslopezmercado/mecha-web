@@ -1,0 +1,107 @@
+---
+import Spark from './Spark.astro';
+---
+
+<section class="cta-final">
+  <Spark
+    size={40}
+    color="#1c1c1c"
+    twinkle="a"
+    speed={-0.2}
+    baseOp={0.85}
+    posStyle="top: 30px; right: 40px;"
+    variant="star"
+  />
+  <Spark
+    size={20}
+    color="#1c1c1c"
+    twinkle="b"
+    speed={-0.12}
+    baseOp={0.6}
+    posStyle="bottom: 50px; left: 60px;"
+    variant="plus"
+  />
+  <Spark
+    size={10}
+    color="#1c1c1c"
+    twinkle="c"
+    speed={-0.08}
+    baseOp={0.4}
+    posStyle="top: 130px; left: 30%;"
+    variant="star"
+  />
+
+  <h2 class="display">¿Encendemos tu sitio?</h2>
+  <p>
+    Mandanos un WhatsApp con dos líneas sobre tu negocio. Te respondemos hoy
+    con una propuesta concreta.
+  </p>
+  <a href="https://wa.me/" class="btn-primary" rel="noopener noreferrer">
+    Hablemos por WhatsApp <span class="arrow" aria-hidden="true">→</span>
+  </a>
+</section>
+
+<style>
+  .cta-final {
+    background: #c4f000;
+    padding: 80px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-final h2 {
+    font-size: 44px;
+    color: #1c1c1c;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-final p {
+    font-size: 15px;
+    color: #1c1c1c;
+    line-height: 1.55;
+    margin-bottom: 32px;
+    opacity: 0.75;
+    max-width: 560px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    padding: 12px 22px;
+    background: #1c1c1c;
+    color: white;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.03);
+  }
+
+  .btn-primary .arrow {
+    color: #c4f000;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .cta-final {
+      padding: 60px 20px;
+    }
+
+    .cta-final h2 {
+      font-size: 32px;
+    }
+  }
+</style>

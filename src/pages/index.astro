@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import IntroOverlay from '../components/IntroOverlay.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Divider from '../components/Divider.astro';
+import Servicio from '../components/Servicio.astro';
+import Proceso from '../components/Proceso.astro';
+import Preguntas from '../components/Preguntas.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import Footer from '../components/Footer.astro';
+import BackgroundSparks from '../components/BackgroundSparks.astro';
+---
+
+<Layout>
+  <BackgroundSparks />
+  <IntroOverlay />
+  <Navbar />
+  <main>
+    <Hero />
+    <Divider />
+    <Servicio />
+    <Proceso />
+    <Preguntas />
+    <CtaFinal />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import '../scripts/animations';
+</script>

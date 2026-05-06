@@ -1,0 +1,91 @@
+---
+interface SparkDef {
+  virtualY: number;
+  x: string;
+  y: string;
+  size: number;
+  color: string;
+  twinkle: 'a' | 'b' | 'c';
+  baseOp: number;
+  variant: 'star' | 'plus';
+}
+
+// Sparks distribuidos a lo largo de toda la página.
+// virtualY = a cuántos px del top de la página "pertenece" el spark.
+// x/y = posición fija en el viewport cuando está visible.
+const sparks: SparkDef[] = [
+  // Hero (~100-500px)
+  { virtualY: 150,  x: '4%',  y: '22%', size: 18, color: '#c4f000', twinkle: 'b', baseOp: 0.75, variant: 'star' },
+  { virtualY: 240,  x: '94%', y: '58%', size: 26, color: '#1c1c1c', twinkle: 'a', baseOp: 0.7,  variant: 'star' },
+  { virtualY: 370,  x: '2%',  y: '75%', size: 14, color: '#1c1c1c', twinkle: 'c', baseOp: 0.65, variant: 'plus' },
+  { virtualY: 460,  x: '96%', y: '38%', size: 22, color: '#c4f000', twinkle: 'a', baseOp: 0.8,  variant: 'star' },
+
+  // Servicio (~600-1250px)
+  { virtualY: 640,  x: '7%',  y: '45%', size: 30, color: '#1c1c1c', twinkle: 'b', baseOp: 0.65, variant: 'star' },
+  { virtualY: 780,  x: '93%', y: '20%', size: 18, color: '#c4f000', twinkle: 'c', baseOp: 0.85, variant: 'plus' },
+  { virtualY: 920,  x: '3%',  y: '62%', size: 22, color: '#c4f000', twinkle: 'a', baseOp: 0.7,  variant: 'star' },
+  { virtualY: 1060, x: '95%', y: '50%', size: 16, color: '#1c1c1c', twinkle: 'b', baseOp: 0.68, variant: 'star' },
+  { virtualY: 1180, x: '6%',  y: '30%', size: 26, color: '#1c1c1c', twinkle: 'c', baseOp: 0.72, variant: 'plus' },
+
+  // Proceso (~1300-1650px, fondo carbón → blancos/lima)
+  { virtualY: 1330, x: '2%',  y: '48%', size: 32, color: '#ffffff', twinkle: 'b', baseOp: 0.65, variant: 'star' },
+  { virtualY: 1430, x: '95%', y: '26%', size: 22, color: '#c4f000', twinkle: 'c', baseOp: 0.8,  variant: 'star' },
+  { virtualY: 1545, x: '5%',  y: '70%', size: 16, color: '#c4f000', twinkle: 'a', baseOp: 0.75, variant: 'plus' },
+  { virtualY: 1635, x: '92%', y: '42%', size: 28, color: '#ffffff', twinkle: 'b', baseOp: 0.68, variant: 'star' },
+
+  // Preguntas (~1700-2250px)
+  { virtualY: 1760, x: '4%',  y: '55%', size: 18, color: '#1c1c1c', twinkle: 'c', baseOp: 0.7,  variant: 'star' },
+  { virtualY: 1890, x: '96%', y: '32%', size: 30, color: '#c4f000', twinkle: 'a', baseOp: 0.78, variant: 'star' },
+  { virtualY: 2010, x: '2%',  y: '66%', size: 14, color: '#1c1c1c', twinkle: 'b', baseOp: 0.65, variant: 'plus' },
+  { virtualY: 2140, x: '94%', y: '44%', size: 22, color: '#c4f000', twinkle: 'c', baseOp: 0.82, variant: 'star' },
+
+  // CTA Final (~2300-2600px, fondo lima → sparks carbón)
+  { virtualY: 2350, x: '5%',  y: '36%', size: 26, color: '#1c1c1c', twinkle: 'a', baseOp: 0.7,  variant: 'star' },
+  { virtualY: 2450, x: '91%', y: '62%', size: 18, color: '#1c1c1c', twinkle: 'b', baseOp: 0.75, variant: 'plus' },
+  { virtualY: 2530, x: '3%',  y: '76%', size: 22, color: '#1c1c1c', twinkle: 'c', baseOp: 0.68, variant: 'star' },
+
+  // Footer (~2620-2750px)
+  { virtualY: 2660, x: '93%', y: '42%', size: 20, color: '#c4f000', twinkle: 'a', baseOp: 0.8,  variant: 'star' },
+  { virtualY: 2710, x: '6%',  y: '58%', size: 14, color: '#c4f000', twinkle: 'b', baseOp: 0.72, variant: 'plus' },
+];
+
+function sw(size: number) {
+  return size > 24 ? 2.5 : size > 16 ? 3 : 3.5;
+}
+---
+
+<div class="bg-spark-field" aria-hidden="true">
+  {sparks.map((s) => (
+    <svg
+      class={`bg-spark s-twinkle-${s.twinkle}`}
+      data-virtual-y={s.virtualY}
+      data-baseop={s.baseOp}
+      width={s.size}
+      height={s.size}
+      viewBox="0 0 40 40"
+      style={`left: ${s.x}; top: ${s.y}; --max-op: 0;`}
+      aria-hidden="true"
+    >
+      <line x1="20" y1="2" x2="20" y2="38" stroke={s.color} stroke-width={sw(s.size)} />
+      <line x1="2" y1="20" x2="38" y2="20" stroke={s.color} stroke-width={sw(s.size)} />
+      {s.variant === 'star' && <line x1="6" y1="6" x2="34" y2="34" stroke={s.color} stroke-width={sw(s.size)} />}
+      {s.variant === 'star' && <line x1="34" y1="6" x2="6" y2="34" stroke={s.color} stroke-width={sw(s.size)} />}
+    </svg>
+  ))}
+</div>
+
+<style>
+  .bg-spark-field {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .bg-spark {
+    position: absolute;
+    will-change: opacity;
+    pointer-events: none;
+  }
+</style>
