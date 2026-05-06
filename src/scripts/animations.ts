@@ -11,9 +11,25 @@ function runIntro() {
 
   setTimeout(() => {
     const mark = document.getElementById('intro-mark');
-    if (mark) {
-      mark.style.transform = 'scale(0.21) translate(-440px, -380px)';
+    const navLogo = document.querySelector<HTMLElement>('.nav-logo');
+
+    if (mark && navLogo) {
+      const markRect = mark.getBoundingClientRect();
+      const navRect = navLogo.getBoundingClientRect();
+
+      // Escala basada en la proporción de alturas visuales
+      const scale = navRect.height / markRect.height;
+
+      // Traducción: mover el centro del mark al centro del nav-logo
+      const markCX = markRect.left + markRect.width / 2;
+      const markCY = markRect.top + markRect.height / 2;
+      const navCX = navRect.left + navRect.width / 2;
+      const navCY = navRect.top + navRect.height / 2;
+
+      // translate() después de scale() para que el centro aterrice exactamente
+      mark.style.transform = `translate(${navCX - markCX}px, ${navCY - markCY}px) scale(${scale})`;
     }
+
     if (overlay) {
       setTimeout(() => { overlay.style.opacity = '0'; }, 700);
       setTimeout(() => { overlay.style.display = 'none'; }, 1400);
