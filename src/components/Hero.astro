@@ -75,6 +75,10 @@ import Spark from './Spark.astro';
 <style>
   .hero {
     padding: 80px 48px 56px;
+    min-height: calc(100vh - 57px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
     overflow: hidden;
   }
@@ -182,6 +186,7 @@ import Spark from './Spark.astro';
   @media (max-width: 768px) {
     .hero {
       padding: 60px 20px 40px;
+      min-height: calc(100vh - 49px);
     }
 
     .hero-mark .word {
